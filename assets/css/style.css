@@ -136,3 +136,23 @@ html {
   input[type="submit"]:hover {
     opacity: 0.8;
   }
+
+  /* RECENT RELEASES */
+  .releases h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: blue;
+    position: relative;
+    left: 900px;
+    top: 150px;
+  }
+
+  /* HOT TOPICS */
+  .topics h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: blue;
+    position: relative;
+    left: 943px;
+    top: 500px;
+  }
