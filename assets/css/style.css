@@ -156,3 +156,40 @@ html {
     left: 943px;
     top: 500px;
   }
+
+  /* LOGIN PAGE */
+  body{
+    background: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  h1{
+    color: blue;
+    padding-bottom: 2rem;
+    font-weight: bold;
+  }
+  a{
+    color: #333;
+  }
+  a:hover{
+    color: blue;
+    text-decoration: none;
+  }
+  .form-control:focus {
+  
+      color: #000;
+      background-color: white;
+      border:2px solid blue;
+      outline: 0;
+      box-shadow: none;
+  
+  }
+  
+  .btn{
+    background: blue;
+    border: lightblue;
+  }
+  .btn:hover {
+    background: lightblue;
+    border: blue;
+  }
