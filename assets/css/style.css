@@ -1,3 +1,24 @@
+* {
+    outline: none;
+}
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+/* CONTAINERS AND ROWS GUIDELINES */
+.row {
+    border: 1px solid red;
+    min-height: 100vh;
+}
+
+.row * {
+    border: 0.5px dashed blue;
+}
+
+/* SIDEBAR AND NAV */
 html {
     font-family: Arial;
     font-size: 16px;
@@ -7,9 +28,11 @@ html {
 .sidebar {
     position: fixed;
     width: 25%;
-    height: 100vh;
-    background: lightblue;
     font-size: 20px;
+}
+
+.sidebar-container {
+    background: lightblue;
 }
 
 .nav {
@@ -20,7 +43,7 @@ html {
     transform: translateY(-50%);
     font-weight: bold;
 }
- 
+
 .nav ul {
     list-style: none;
 }
@@ -63,10 +86,3 @@ html {
     background-image: blue;
 }
 
-.row {
-    border: 1px solid red;
-}
-
-.row * {
-    border: 1px dashed blue;
-}

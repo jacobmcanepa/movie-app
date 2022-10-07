@@ -8,20 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Movie App Dashboard</title>
 </head>
 
 <body>
-    <main class="main container">
+    <main class="main container-fluid">
       <div class="row">
         <!-- sidebar -->
           <div class="col-sm-3  sidebar-container">
-            nav
-              <!--
-              <nav class="nav sidebar"
+              <nav class="nav sidebar">
                 <ul>
                   <li class="active"><a href="#">User</a></li>
                   <li><a href="#">Updates</a></li>
@@ -30,14 +27,13 @@
                   <li><a href="#">Logout</a></li>
                 </ul>
               </nav>
-            -->
           </div>
           <!-- new post -->
           <div class="col-sm-6 post-area">
-            post area
-            <!--<div class="new-post" action=" ">
+            <div class="new-post" action=" ">
+              <h2 class="header">New Post</h2>
               <form class="form-group">
-                <label for="newPost">New Post</label>
+                <label for="newPost"></label>
                 <input type="text" height="60" width="400" id="newPost" name="newPost">
               </form>
 
@@ -48,7 +44,7 @@
 
               <div id="loading"></div>
               <ul id="movie-ul" style="list-style: none; margin-left: 0px;"></ul>
-            </div>-->
+            </div>
           </div>
           <!-- recent releases sidebar | probably optional? -->
           <div class="col-sm-3 recent-releases-min">
@@ -69,7 +65,8 @@
 
 
 
-<script src="./assets/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
 
 </body>
 
