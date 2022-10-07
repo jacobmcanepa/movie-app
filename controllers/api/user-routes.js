@@ -34,11 +34,38 @@ router.get('/:id', (req, res) => {
 // POST /api/users
 router.post('/', (req, res) => {
   // expects...
-  // username: <username>,
+  // { username: <username>,
   // email: <email>,
-  // password: <password>
+  // password: <password> }
   User.create(req.body)
     .then(data => res.json(data))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// POST /api/login
+router.post('/login', (req, res) => {
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  })
+    .then(data => {
+      if (!data) {
+        res.status(400).json({ message: 'No user found with this email' });
+        return;
+      }
+
+      const validPassword = data.checkPassword(req.body.password);
+      if (!validPassword) {
+        res.status(400).json({ messsage: 'Incorrect password' });
+        return;
+      }
+
+      res.json({user: data, message: 'You are logged in' });
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
