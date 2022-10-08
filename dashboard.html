@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Movie App Dashboard</title>
 </head>
@@ -28,22 +28,33 @@
                 </ul>
               </nav>
           </div>
-          <!-- new post -->
-          <div class="col-sm-6 post-area">
-            <div class="new-post" action=" ">
-              <h2 class="header">New Post</h2>
-              <form class="form-group">
-                <label for="newPost"></label>
-                <input type="text" height="60" width="400" id="newPost" name="newPost">
-              </form>
+          <!-- Posts Section -->
+          <div class="posts-section col-sm-6 container-fluid">
+            <!-- new post -->
+            <div class="col-sm-12 post-area">
+              <h2 class="header">Your Dashboard</h2>
+              <div class="row new-post" action=" ">
+                <form class="col-sm-12 order-1 form-group">
+                  <label for="newPost"><i class="bi bi-person-circle"></i></label>
+                  <textarea rows="2" cols="50" placeholder="New post..." id="newPost" name="newPost"></textarea>
+                </form>
 
-              <form class="form-group">
-                <input placeholder="e.g. Avengers: Civil War" type="text" id="movie-search" />
-                <button type="submit" class="button">Search</button>
-              </form>
+                <form class="col-sm-9 order-2 form-group">
+                  <input placeholder="e.g. Avengers: Civil War" type="text" id="movie-search" />
+                  <button type="submit" class="button">Search</button>
+                </form>
 
-              <div id="loading"></div>
-              <ul id="movie-ul" style="list-style: none; margin-left: 0px;"></ul>
+                <form class="col-sm-3 order-3 post-button">
+                  <button type="submit" class="button">Post</button>
+                </form>
+
+                <div id="loading" class="col-sm-12 order-12"></div>
+                <ul id="movie-ul" class="col-sm-12 order-12" style="list-style: none; margin-left: 0px;"></ul>
+              </div>
+            </div>
+            <!-- old posts -->
+            <div class="col-sm-12 old-posts">
+              Old Post Placeholders
             </div>
           </div>
           <!-- recent releases sidebar | probably optional? -->
