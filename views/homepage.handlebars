@@ -1,22 +1,5 @@
   <form id="home-form">
     <div class="form-group">
-      <label for="amount">List Amount</label>
-      <select class="form-control" id="amount">
-          <option>One</option>
-          <option>Two</option>
-          <option>Three</option>
-          <option>Four</option>
-          <option>Five</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="type">Popular or Obscure?</label>
-      <select class="form-control" id="type">
-        <option>popular</option>
-        <option>obscure</option>
-      </select>
-    </div>
-    <div class="form-group">
       <label for="genre">Genre</label>
       <select class="form-control" id="genre">
         <option>crime</option>
@@ -29,14 +12,16 @@
     <div class="form-group">
       <label for="era">Era</label>
       <select class="form-control" id="era">
-        <option>2000's</option>
-        <option>1990's</option>
-        <option>1980's</option>
-        <option>1970's</option>
-        <option>1960's</option>
+        <option>2000</option>
+        <option>1990</option>
+        <option>1980</option>
+        <option>1970</option>
+        <option>1960</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary">Create List</button>
+    <button type="submit" class="btn btn-primary">Suggest Movie</button>
   </form>
+
+  <div id="suggestions"></div>
 
 <script src="/javascript/homepage.js"></script>
