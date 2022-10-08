@@ -1,4 +1,4 @@
-const { User } = require('../../models');
+const { User, Movie } = require('../../models');
 const router = require('express').Router();
 
 // GET /api/users
@@ -16,7 +16,13 @@ router.get('/:id', (req, res) => {
   User.findOne({
     where: {
       id: req.params.id
-    }
+    },
+    include: [
+      {
+        model: Movie,
+        attributes: ['id', 'title', 'created_at']
+      }
+    ]
   })
     .then(data => {
       if (!data) {
