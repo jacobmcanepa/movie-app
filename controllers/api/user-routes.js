@@ -13,6 +13,13 @@ router.get('/', (req, res) => {
 
 // GET /api/users/:id
 router.get('/:id', (req, res) => {
+  if(!req.session.views){
+    req.session.views=1;;
+    console.log("This is your first visit");
+  } else  {
+    req.session.views++;
+    console.log(`You have visited ${req.session.views} times`);
+  }  
   User.findOne({
     where: {
       id: req.params.id
@@ -43,14 +50,22 @@ router.post('/', (req, res) => {
   // { username: <username>,
   // email: <email>,
   // password: <password> }
-  User.create(req.body)
-    .then(data => res.json(data))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
 
+  User.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password
+  })
+  .then(data => {
+    req.session.save(() => {
+      req.session.user_id = data.id;
+      req.session.username = data.username;
+      req.session.loggedIn = true;
+  
+      res.json(data);
+    });
+  })
+});
 // POST /api/login
 router.post('/login', (req, res) => {
   User.findOne({
@@ -70,12 +85,15 @@ router.post('/login', (req, res) => {
         return;
       }
 
-      res.json({user: data, message: 'You are logged in' });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+    req.session.save(() => {
+      req.session.user_id = data.id;
+      req.session.username = data.username;
+      req.session.loggedIn = true;
+  
+      res.json({ user: data, message: 'You are now logged in!' });
+
     });
+  });
 });
 
 // DELETE /api/users/:id
@@ -96,6 +114,16 @@ router.delete('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+router.post('/logout', (req,res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else { 
+    res.status(404).end();
+  }
 });
 
 module.exports = router;

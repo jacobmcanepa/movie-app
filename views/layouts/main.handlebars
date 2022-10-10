@@ -11,7 +11,7 @@
         rel="stylesheet">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    {{!-- <link rel="stylesheet" href="/stylesheets/style.css" /> --}}
     <title>Movie App</title>
 </head>
 
@@ -20,24 +20,30 @@
         <aside class="sidebar">
             <nav class="nav">
                 <ul>
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Logout</a></li>
-                </ul>
+                {{#if loggedIn}}
+                    <button class="active"><a href="">Home</a></li>
+                    <button><a href="#">Profile</a></li>
+                    <button id="logout" class="btn-no-style">logout</button>
+                    <li>Logged in as {{user_id}} </li>
+                {{else}} 
+                    <button><a href="/login">Login</a></li>
+               {{/if}}
+           </ul>
             </nav>
         </aside>
 
         <div id="wrap">
           <form action="" autocomplete="on">
-          <input id="search" name="search" type="text" placeholder="Search For Movie"><input id="search_submit" value="Rechercher" type="submit">
+          <input id="search" name="search" type="text" placeholder="Search For Movie"><input id="search_submit" value="Request" type="submit">
           </form>
         </div>
 
         {{{ body }}}
     </main>
 
-
+     {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+    {{/if}}
 
 
 
