@@ -24,6 +24,7 @@
                     <button class="active"><a href="">Home</a></li>
                     <button><a href="#">Profile</a></li>
                     <button id="logout" class="btn-no-style">logout</button>
+                    <span>Logged in as: {{ username }}</span>
                 {{else}} 
                     <button><a href="/login">Login</a></li>
                {{/if}}
