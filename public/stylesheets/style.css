@@ -193,3 +193,16 @@ html {
     background: lightblue;
     border: blue;
   }
+
+  .test-border {
+    border: red 5px solid;
+  }
+
+  .home-page {
+    margin-left: 500px;
+    margin-right: 200px;
+  }
+
+  .movie-text {
+    font-size: 30px;
+  }
