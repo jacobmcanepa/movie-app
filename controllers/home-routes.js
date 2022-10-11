@@ -19,4 +19,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/profile', (req,res) => {
+   res.render('profile', {
+    username: req.session.username,
+    email: req.session.email,
+    id: req.session.user_id
+   });
+});
+
 module.exports = router;
