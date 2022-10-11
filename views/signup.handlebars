@@ -1,52 +1,23 @@
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5 mx-auto">
-                <div class="card card-body">
-                    <form id="submitForm" action="/login" method="post" data-parsley-validate=""
-                        data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1"><input type="hidden"
-                            name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <form class="bg-light p-5 rounded shadow" id="signup-form">
+        <div class="form-group">
+          <label for="username-signup">Username</label>
+          <input type="username" class="form-control" id="username-signup" placeholder="Enter username" />
+        </div>
+        <div class="form-group">
+          <label for="email-signup">Email address</label>
+          <input type="email" class="form-control" id="email-signup" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="password-signup">Password</label>
+          <input type="password" class="form-control" id="password-signup" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
 
-                        <div class="form-group required">
-                            <label class="d-flex flex-row align-items-center" for="first-name">First Name
-                                <a class="ml-auto border-link small-xl"></a></label>
-                            <input type="first-name" class="form-control" required="" id="first-name" name="first-name"
-                                value="">
-                        </div>
-
-                        <div class="form-group required">
-                            <label class="d-flex flex-row align-items-center" for="last-name">Last Name
-                                <a class="ml-auto border-link small-xl"></a></label>
-                            <input type="last-name" class="form-control" required="" id="last-name" name="last-name"
-                                value="">
-                        </div>
-
-                        <div class="form-group required">
-                            <label class="d-flex flex-row align-items-center" for="username">Username
-                                <a class="ml-auto border-link small-xl"></a></label>
-                            <input type="username" class="form-control" required="" id="username" name="username"
-                                value="">
-                        </div>
-
-                        <div class="form-group required">
-                            <label class="d-flex flex-row align-items-center" for="email">Email
-                                <a class="ml-auto border-link small-xl"></a></label>
-                            <input type="email" class="form-control" required="" id="email" name="email" value="">
-                        </div>
-
-                        <div class="form-group required">
-                            <label class="d-flex flex-row align-items-center" for="password">Password
-                                <a class="ml-auto border-link small-xl"></a></label>
-                            <input type="password" class="form-control" required="" id="password" name="password"
-                                value="">
-                        </div>
-                        <div class="form-group mt-4 mb-4">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me"
-                                    data-parsley-multiple="remember-me">
-                                <label class="custom-control-label" for="remember-me">Remember me?</label>
-                            </div>
-                        </div>
-                        <div class="form-group pt-1">
-                            <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
-                        </div>
-                    </form>
+<script src="/javascript/signup.js"></script>
