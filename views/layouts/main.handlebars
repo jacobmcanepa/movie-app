@@ -28,7 +28,7 @@
                 {{else}} 
                     <button><a href="/login">Login</a></li>
                {{/if}}
-           </ul>
+                </ul>
             </nav>
         </aside>
 
@@ -37,15 +37,14 @@
           <input id="search" name="search" type="text" placeholder="Search For Movie"><input id="search_submit" value="Request" type="submit">
           </form>
         </div>
-
         {{{ body }}}
+
     </main>
 
-     {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
     {{/if}}
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
 </body>
 
 </html>

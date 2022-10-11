@@ -20,10 +20,15 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/profile', (req,res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
    res.render('profile', {
     username: req.session.username,
     email: req.session.email,
-    id: req.session.user_id
+    id: req.session.user_id,
+    loggedIn: req.session.loggedIn
    });
 });
 
