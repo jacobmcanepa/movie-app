@@ -44,11 +44,13 @@ async function homeFormHandler(event) {
   suggestions.innerHTML = '';
 
   const spanEl = document.createElement('span');
-  spanEl.setAttribute('id', 'title')
+  spanEl.setAttribute('id', 'title');
+  spanEl.classList.add('text-light', 'font-weight-bold', 'pr-3', 'movie-text');
   spanEl.innerHTML = data.result[0].text;
   suggestions.appendChild(spanEl);
   
   const addButton = document.createElement('button');
+  addButton.classList.add('btn', 'bg-success', 'text-light');
   addButton.innerHTML = 'Add Movie';
   suggestions.appendChild(addButton);
   addButton.addEventListener('click', addMovie);
