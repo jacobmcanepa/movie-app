@@ -20,31 +20,32 @@
         <aside class="sidebar">
             <nav class="nav">
                 <ul>
+                    <li class="active"><a href="/">Home</a></li>
                 {{#if loggedIn}}
-                    <button class="active"><a href="/">Home</a></li>
-                    <button><a href="/profile">Profile</a></li>
-                    <button id="logout" class="btn-no-style">logout</button>
+                    <li><a href="/profile">Profile</a></li>
+                    <li id="logout" class="btn-no-style"><a href="">Logout</a></li>
                     <span>Logged in as: {{ username }}</span>
                 {{else}} 
-                    <button><a href="/login">Login</a></li>
+                    <li><a href="/login">Login</a></li>
                {{/if}}
-                </ul>
+           </ul>
             </nav>
         </aside>
 
         <div id="wrap">
           <form action="" autocomplete="on">
-          <input id="search" name="search" type="text" placeholder="Search For Movie"><input id="search_submit" value="Request" type="submit">
+          <input id="search" name="search" type="text" placeholder="Search for a user"><input id="search_submit" value="Request" type="submit">
           </form>
         </div>
-        {{{ body }}}
 
+        {{{ body }}}
     </main>
 
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
+     {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
     {{/if}}
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
