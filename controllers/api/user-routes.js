@@ -13,13 +13,6 @@ router.get('/', (req, res) => {
 
 // GET /api/users/:id
 router.get('/:id', (req, res) => {
-  if(!req.session.views){
-    req.session.views=1;;
-    console.log("This is your first visit");
-  } else  {
-    req.session.views++;
-    console.log(`You have visited ${req.session.views} times`);
-  }  
   User.findOne({
     where: {
       id: req.params.id
@@ -60,6 +53,7 @@ router.post('/', (req, res) => {
     req.session.save(() => {
       req.session.user_id = data.id;
       req.session.username = data.username;
+      req.session.email = data.email;
       req.session.loggedIn = true;
   
       res.json(data);
@@ -78,19 +72,17 @@ router.post('/login', (req, res) => {
         res.status(400).json({ message: 'No user found with this email' });
         return;
       }
-
       const validPassword = data.checkPassword(req.body.password);
       if (!validPassword) {
         res.status(400).json({ messsage: 'Incorrect password' });
         return;
       }
-
-    req.session.save(() => {
-      req.session.user_id = data.id;
-      req.session.username = data.username;
-      req.session.loggedIn = true;
-  
-      res.json({ user: data, message: 'You are now logged in!' });
+      req.session.save(() => {
+        req.session.user_id = data.id;
+        req.session.email = req.body.email;
+        req.session.username = data.username;
+        req.session.loggedIn = true;
+        res.json({ user: data, message: 'You are now logged in!' });
 
     });
   });
