@@ -59,7 +59,12 @@ router.post('/', (req, res) => {
       res.json(data);
     });
   })
-});
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+  });
+
 // POST /api/login
 router.post('/login', (req, res) => {
   User.findOne({

@@ -1,9 +1,14 @@
-<section>
+<ol class="post-list">
+  <li>
 
-  <h2>Your profile: </h2>
-    <div>
+    <ul>{{user.email}}</ul>
+    <ul>{{user.id}}</ul>
+    <ul>{{user.username}}</ul>
 
-      <p>email: {{email}} </p>
-      <p>Session ID {{id}} </p>
-    </div>
-  </section>
+  {{#each user.movies}}
+
+    <ul>{{title}}</ul>
+
+  {{/each}} 
+  </li>
+</ol>

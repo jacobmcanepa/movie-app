@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
- //future template? delete if unused
-// const { Post, User, Comment, Vote } = require('../models');
+const {  User, Movie } = require('../models');
 
 
 router.get('/', (req, res) => {
@@ -12,6 +11,33 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/profile', (req,res) => {
+  console.log(req.session.user_id);
+  User.findOne({
+    attributes: {exclude: ['password']},
+    where: {
+      id: req.session.user_id
+    },
+    include: [
+      {
+        model: Movie,
+        attributes: ['title']
+      }
+    ]
+  })
+  .then(data => { 
+    const user = data.get({ plain: true });
+    res.render('profile', {user, 
+      loggedIn: req.session.loggedIn,
+      username: req.session.username,
+      email: req.session.email,
+      user_id: req.session.user_id
+    });
+   });
+  });
+
+
+
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -20,21 +46,5 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/profile', (req,res) => {
-  if (!req.session.loggedIn) {
-    res.redirect('/login');
-    return;
-  }
-   res.render('profile', {
-    username: req.session.username,
-    email: req.session.email,
-    id: req.session.user_id,
-    loggedIn: req.session.loggedIn
-   });
-});
-
-router.get('/signup', (req, res) => {
-  res.render('signup');
-});
 
 module.exports = router;
