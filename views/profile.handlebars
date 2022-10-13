@@ -1,14 +1,20 @@
-<ol class="post-list">
-  <li>
-
-    <ul>{{user.email}}</ul>
-    <ul>{{user.id}}</ul>
-    <ul>{{user.username}}</ul>
-
-  {{#each user.movies}}
-
-    <ul>{{title}}</ul>
-
-  {{/each}} 
-  </li>
-</ol>
+      <div class="row">
+        <!-- Posts Section -->
+        <div class="user-section col-sm-6 container-fluid">
+            <!-- new post -->
+            <div class="col-sm-12 user-area">
+              <h2 class="header">{{user.username}}'s Profile</h2>
+            </div>
+            <!-- old posts -->
+            <div class="col-sm-12 container-fluid movie-recommendations">
+                <!-- Template for importing movie info, change as needed -->
+                {{#each user.movies}}
+                <div class="movieRecc my-3">
+                    <h3>{{title}}</h3>
+                    <p class="movieNote">Thoughts:</p>
+                </div>
+                {{/each}}
+                <div id="loading" class="col-sm-12 order-12"></div>
+                <ul id="movie-ul" class="col-sm-12 order-12" style="list-style: none; margin-left: 0px;"></ul> 
+            </div>
+        </div>
