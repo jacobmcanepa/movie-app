@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/profile', (req,res) => {
-  console.log(req.session.user_id);
   User.findOne({
     attributes: {exclude: ['password']},
     where: {
@@ -21,7 +20,7 @@ router.get('/profile', (req,res) => {
     include: [
       {
         model: Movie,
-        attributes: ['title']
+        attributes: ['title', 'id']
       }
     ]
   })
