@@ -1,17 +1,15 @@
-async function deleteMovieHandler(event) {
-    event.preventDefault();
+async function deleteMovieHandler() {
     
-     const id = document.querySelector('#movie_id').innerHTML;
-    const response = await fetch(`/api/movies/${id}`, {
-      method: 'DELETE'
-    });
-  
-    if (response.ok) {
+    document.getElementById("movieList").addEventListener('click', async function(event) {
+        event.preventDefault();
+        const id = event.target.id.replace("btn", "");
+        const response = await fetch(`/api/movies/${id}`, {
+        method: 'DELETE'
+            });
+         if (response.ok) {
       document.location.replace('/profile/');
-    } else {
-      alert(response.statusText);
-    }
-  }
-
-
-document.querySelector('#delete').addEventListener('click', deleteMovieHandler);
+        } else {
+         alert(response.statusText);
+     }
+ });
+}

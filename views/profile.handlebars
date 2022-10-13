@@ -6,16 +6,17 @@
               <h2 class="header">{{user.username}}'s Profile</h2>
             </div>
             <!-- old posts -->
-            <div class="col-sm-12 container-fluid movie-recommendations">
+            <div id = "movieList" class="col-sm-12 container-fluid movie-recommendations">
                 <!-- Template for importing movie info, change as needed -->
                 {{#each user.movies}}
-                <div class="movieRecc my-3">
+                <div  class="movieRecc my-3">
                     <h3>{{title}}</h3>
                     <p class="movieNote">Thoughts:</p>
-                    <button id = "delete" class="btn bg-danger text-light">Delete</button>
-                    <span style="opacity: 0;" id="movie_id">{{id}}</span>
+                    <button id="btn{{id}}" onclick="deleteMovieHandler()" class="btn bg-danger text-light">Delete</button>
+                    <span style="opacity: 0;" id="movie_id" class = "target">{{id}}</span>
                 </div>
                 {{/each}}
+                
                 <div id="loading" class="col-sm-12 order-12"></div>
                 <ul id="movie-ul" class="col-sm-12 order-12" style="list-style: none; margin-left: 0px;"></ul> 
             </div>
@@ -23,3 +24,5 @@
 
 
 <script src="/javascript/profile.js"></script>
+
+    
