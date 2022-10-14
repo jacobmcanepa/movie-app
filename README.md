@@ -16,5 +16,5 @@
 
 
 ## Credits
-This app was built collaboratively by Jacob Canepa, Nathan Hur, Nicole Verhulp and William Wartick. 
+This app was built collaboratively by Jacob Canepa, Nathan Hur, Nicole Verhulp, William Wartick, and Oleg Kibalko. 
 
