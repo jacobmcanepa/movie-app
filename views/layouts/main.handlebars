@@ -23,9 +23,8 @@
                 <ul>
                     <li class="active"><a href="/">Home</a></li>
                 {{#if loggedIn}}
-                    <li id="profile"><a href="/profile">Profile</a></li>
+                    <li id="profile"><a href="/profile">{{username}}'s Profile</a></li>
                     <li id="logout" class="btn-no-style"><a href="">Logout</a></li>
-                    <span>Logged in as: {{ username }}</span>
                 {{else}} 
                     <li><a href="/login">Login</a></li>
                {{/if}}
@@ -33,11 +32,11 @@
             </nav>
         </aside>
 
-        <div id="wrap">
-          <form action="" autocomplete="on">
-          <input id="search" name="search" type="text" placeholder="Search for a user"><input id="search_submit" value="Request" type="submit">
-          </form>
+        {{#if loggedIn}}
+        <div>
+            <span class="sidebarUsername">Logged in as: {{ username }}</span>
         </div>
+        {{/if}}
 
         {{{ body }}}
     </main>
