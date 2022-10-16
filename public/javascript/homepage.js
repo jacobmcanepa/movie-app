@@ -23,6 +23,7 @@ async function addMovie(title) {
 
   if (response.ok) {
     console.log('success!');
+    alert('Movie has been added to your watchlist!');
   } else {
     document.location.replace('/login');
   }
@@ -67,7 +68,9 @@ async function homeFormHandler(event) {
   
     arr.forEach(item => {
       const listItemEl = document.createElement('li');
+      listItemEl.classList.add('p-2');
       const buttonEl = document.createElement('button');
+      buttonEl.classList.add('btn', 'bg-warning', 'text-light', 'font-weight-bold', 'movie-btn');
       buttonEl.innerText = item.substring(3);
       buttonEl.addEventListener('click', (event) => {
         event.preventDefault();
@@ -81,7 +84,8 @@ async function homeFormHandler(event) {
 
     const listItemEl = document.createElement('li');
     const buttonEl = document.createElement('button');
-    buttonEl.innerText = result;
+    buttonEl.classList.add('btn', 'bg-warning', 'text-light', 'font-weight-bold', 'movie-btn');
+    buttonEl.innerHTML = `<span>${result}</span>`;
     buttonEl.addEventListener('click', (event) => {
       event.preventDefault();
       addMovie(result);

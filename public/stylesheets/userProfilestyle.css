@@ -104,3 +104,7 @@
 .movieRecc:focus {
     border-color: rgba(0,0,255,1);
 }
+
+.test-border {
+    border: red solid 5px;
+}

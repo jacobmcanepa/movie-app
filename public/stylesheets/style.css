@@ -1,5 +1,6 @@
 * {
     outline: none;
+    padding: 0;
 }
 
 html,
@@ -12,7 +13,7 @@ body {
 html {
     font-family: Arial;
     font-size: 16px;
-    background: white;
+    background: lightblue;
 }
 
 .sidebar {
@@ -245,13 +246,13 @@ html {
 
   /* Loader style */
   #loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
+    width: 2rem; height: 2rem;
+    border: 5px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 100%;
+    margin-left: 45px;
     visibility: hidden;
+    animation: spin 1s infinite linear;
   }
 
   #loader.display {
@@ -261,4 +262,9 @@ html {
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+  /* suggestions style */
+  .movie-btn:hover span {
+    display: none;
   }
