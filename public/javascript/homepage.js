@@ -31,6 +31,8 @@ async function addMovie(title) {
 async function homeFormHandler(event) {
   event.preventDefault();
 
+  document.querySelector('#suggestions').innerHTML = '';
+
   displayLoading();
 
   const amount = document.querySelector('#amount').value.trim();
@@ -51,25 +53,43 @@ async function homeFormHandler(event) {
 
   if (response.ok) {
     removeLoading();
+  } else {
+    removeLoading();
+    alert('Error while loading suggestion');
   }
 
   const data = await response.json();
-  const arr = data.result[0].text.split('\n');
-  arr.splice(0,2);
-
   const suggestions = document.getElementById('suggestions');
 
-  arr.forEach(item => {
+  if (amount != 'One') {
+    const arr = data.result[0].text.split('\n');
+    arr.splice(0,2);
+  
+    arr.forEach(item => {
+      const listItemEl = document.createElement('li');
+      const buttonEl = document.createElement('button');
+      buttonEl.innerText = item.substring(3);
+      buttonEl.addEventListener('click', (event) => {
+        event.preventDefault();
+        addMovie(item.substring(3));
+      });
+      listItemEl.appendChild(buttonEl);
+      suggestions.appendChild(listItemEl);
+    });
+  } else {
+    const result = data.result[0].text.trim();
+
     const listItemEl = document.createElement('li');
     const buttonEl = document.createElement('button');
-    buttonEl.innerText = item.substring(3);
+    buttonEl.innerText = result;
     buttonEl.addEventListener('click', (event) => {
       event.preventDefault();
-      addMovie(item.substring(3));
+      addMovie(result);
     });
+
     listItemEl.appendChild(buttonEl);
     suggestions.appendChild(listItemEl);
-  });
+  }
 };
 
 document.querySelector('#home-form').addEventListener('submit', homeFormHandler);
