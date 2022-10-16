@@ -1,8 +1,16 @@
-async function addMovie(event) {
-  event.preventDefault();
+const loader = document.querySelector('#loader');
+
+const displayLoading = () => {
+  loader.classList.add('display');
+};
+
+const removeLoading = () => {
+  loader.classList.remove('display');
+};
+
+async function addMovie(title) {
 
   const user_id = document.querySelector('#user_id').innerHTML.trim();
-  const title = document.querySelector('#title').innerHTML.trim();
 
   const response = await fetch('/api/movies', {
     method: 'post',
@@ -23,6 +31,10 @@ async function addMovie(event) {
 async function homeFormHandler(event) {
   event.preventDefault();
 
+  displayLoading();
+
+  const amount = document.querySelector('#amount').value.trim();
+  const type = document.querySelector('#type').value.trim();
   const genre = document.querySelector('#genre').value.trim();
   const era = document.querySelector('#era').value.trim();
 
@@ -30,30 +42,34 @@ async function homeFormHandler(event) {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      genre,
+      amount: amount.toLowerCase(),
+      type: type.toLowerCase(),
+      genre: genre.toLowerCase(),
       era
     })
   });
 
-  //console.log(genre, era);
+  if (response.ok) {
+    removeLoading();
+  }
 
   const data = await response.json();
-  console.log(data.result[0].text);
+  const arr = data.result[0].text.split('\n');
+  arr.splice(0,2);
 
   const suggestions = document.getElementById('suggestions');
-  suggestions.innerHTML = '';
 
-  const spanEl = document.createElement('span');
-  spanEl.setAttribute('id', 'title');
-  spanEl.classList.add('text-light', 'font-weight-bold', 'pr-3', 'movie-text');
-  spanEl.innerHTML = data.result[0].text;
-  suggestions.appendChild(spanEl);
-  
-  const addButton = document.createElement('button');
-  addButton.classList.add('btn', 'bg-success', 'text-light');
-  addButton.innerHTML = 'Add Movie';
-  suggestions.appendChild(addButton);
-  addButton.addEventListener('click', addMovie);
+  arr.forEach(item => {
+    const listItemEl = document.createElement('li');
+    const buttonEl = document.createElement('button');
+    buttonEl.innerText = item.substring(3);
+    buttonEl.addEventListener('click', (event) => {
+      event.preventDefault();
+      addMovie(item.substring(3));
+    });
+    listItemEl.appendChild(buttonEl);
+    suggestions.appendChild(listItemEl);
+  });
 };
 
 document.querySelector('#home-form').addEventListener('submit', homeFormHandler);

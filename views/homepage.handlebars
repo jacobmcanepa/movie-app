@@ -3,12 +3,35 @@
   <form id="home-form" class="home-form col-sm-6 container-fluid">
 
     <div class="form-group">
+      <label for="amount">LIST AMOUNT</label>
+      <select class="form-control form-select" id="amount">
+        <option>One</option>
+        <option>Two</option>
+        <option>Three</option>
+        <option>Four</option>
+        <option>Five</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="type">POPULAR OR OBSCURE?</label>
+      <select class="form-control form-select" id="type">
+        <option>Popular</option>
+        <option>Obscure</option>
+      </select>
+    </div>
+
+    <div class="form-group">
       <label for="genre">GENRE</label>
-      <select class="form-control genreSelect" id="genre">
+      <select class="form-control form-select" id="genre">
         <option>Crime</option>
         <option>Drama</option>
         <option>Romance</option>
         <option>Horror</option>
+        <option>Comedy</option>
+        <option>Science-Fiction</option>
+        <option>Western</option>
+        <option>Fantasy</option>
         <option>Documentary</option>
       </select>
 
@@ -16,7 +39,7 @@
 
     <div class="form-group">
       <label for="era">ERA</label>
-      <select class="form-control yearSelect" id="era">
+      <select class="form-control form-select" id="era">
         <option>2000</option>
         <option>1990</option>
         <option>1980</option>
@@ -30,7 +53,8 @@
 
   </form>
 
-  <div id="suggestions" class="mt-4"></div>
+  <ul id="suggestions"></ul>
+  <div id="loader"></div>
 
 </div>
 

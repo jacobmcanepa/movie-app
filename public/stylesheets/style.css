@@ -221,16 +221,13 @@ html {
     padding: 0.4em;
   }
 
-  #home-form .genreSelect,
-  #home-form .yearSelect {
+  #home-form .form-select {
     border: 4px solid rgba(0,0,255,0.2);
     transition: 0.3s;
   }
 
-  #home-form .genreSelect:hover,
-  #home-form .genreSelect:focus,
-  #home-form .yearSelect:hover,
-  #home-form .yearSelect:focus {
+  #home-form .form-select:hover,
+  #home-form .form-select:focus {
     border: 4px solid blue;
   }
 
@@ -244,4 +241,24 @@ html {
   #home-form .suggestButton:hover {
     background-color: blue;
     color: white;
+  }
+
+  /* Loader style */
+  #loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    visibility: hidden;
+  }
+
+  #loader.display {
+    visibility: visible;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
