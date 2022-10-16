@@ -23,7 +23,7 @@ async function generateMovies(amount, type, genre, era) {
   else {
     let response = await openai.createCompletion({
       model: "text-davinci-002",
-      prompt: 'Suggest the name ' + type + ' ' + genre + ' movie made in the ' + era +"'s",
+      prompt: 'Suggest the name of a ' + type + ' ' + genre + ' movie made in the ' + era +"'s",
       temperature: 0.7,
       max_tokens: 256,
       top_p: 1,
