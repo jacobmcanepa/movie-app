@@ -12,6 +12,7 @@ There are many streaming platforms out there but the the recommendations are oft
 ## Deployed Page
 <img src = "./images/deployed-page1.png">
 <img src = "./images/deployed-page2.png">
+<img src = "./images/deployed-page3.png">
 
 [URL of Deployed Application](https://g07-movie-app.herokuapp.com/)
 
